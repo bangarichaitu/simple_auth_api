@@ -280,7 +280,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  cgi (>= 0.3.3)
+  cgi (= 0.5.2)
   debug
   devise
   devise-jwt
