@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  category: one
+  hotel: one
+  transaction_type: MyString
+  quantity: 9.99
+  rate: 9.99
+  balance_after: 9.99
+  transaction_date: 2026-11-14
+  remarks: MyText
+
+two:
+  company: two
+  category: two
+  hotel: two
+  transaction_type: MyString
+  quantity: 9.99
+  rate: 9.99
+  balance_after: 9.99
+  transaction_date: 2026-11-14
+  remarks: MyText
