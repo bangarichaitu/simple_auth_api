@@ -29,9 +29,14 @@ test:
   database: simple_auth_api_test
 
 production:
-  <<: *default
-  database: simple_auth_api
-
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT", 3306) %>
+  database: <%= ENV.fetch("DB_NAME") %>
+  username: <%= ENV.fetch("DB_USERNAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
