@@ -28,7 +28,7 @@ module Api
           stock_outs: stock_outs.map { |stock_in| stock_in_json(stock_in) },
           companies: Company.select(:id, :name, :active),
           hotels: Hotel.select(:id, :name, :active),
-          categories: Category.select(:id, :name)
+          categories: Category.select(:id, :name, :active)
         }
       end
 

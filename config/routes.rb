@@ -29,7 +29,11 @@ Rails.application.routes.draw do
           patch :toggle_status
         end
       end
-      resources :categories, only: [:index, :show, :create, :update, :destroy]
+      resources :categories do
+        member do
+          patch :toggle_status
+        end
+      end
       resources :stock_transactions, only: [:index, :create]
       resources :stock_ins, only: [:index, :create]
       resources :stock_outs, only: [:index, :create]

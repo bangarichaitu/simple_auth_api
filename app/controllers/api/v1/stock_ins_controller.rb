@@ -24,7 +24,7 @@ module Api
         render json: {
           stock_ins: stock_ins.map { |stock_in| stock_in_json(stock_in) },
           companies: Company.select(:id, :name, :active),
-          categories: Category.select(:id, :name)
+          categories: Category.select(:id, :name, :active)
         }
       end
 

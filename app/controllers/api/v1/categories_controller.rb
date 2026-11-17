@@ -2,7 +2,7 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       before_action :authenticate_user!
-      before_action :set_category, only: [:show, :update, :destroy]
+      before_action :set_category, only: [:show, :update, :destroy, :toggle_status]
 
       def index
         render json: Category.order(created_at: :desc)
@@ -39,6 +39,20 @@ module Api
           render json: { errors: @category.errors.full_messages },
                  status: :unprocessable_entity
         end
+      end
+
+
+      def toggle_status
+        @category.update!(active: !@category.active)
+
+        render json: {
+          message: "Category status updated successfully",
+          company: @category
+        }
+      rescue ActiveRecord::RecordInvalid
+        render json: {
+          errors: @category.errors.full_messages
+        }, status: :unprocessable_entity
       end
 
       private
