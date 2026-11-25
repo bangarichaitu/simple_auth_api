@@ -20,6 +20,18 @@ module Api
           hotel_id: params[:hotel_id]
         ) if params[:hotel_id].present?
 
+        if params[:from_date].present?
+          stock_outs = stock_outs.where(
+            "transaction_date >= ?", Date.iso8601(params[:from_date])
+          )
+        end
+
+        if params[:to_date].present?
+          stock_outs = stock_outs.where(
+            "transaction_date <= ?", Date.iso8601(params[:to_date])
+          )
+        end
+
         stock_outs = stock_outs.where(
           transaction_date:  Date.iso8601(params[:transaction_date])
         ) if params[:transaction_date].present?

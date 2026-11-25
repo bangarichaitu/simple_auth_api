@@ -10,7 +10,8 @@ module Api
             id: current_user.id,
             name: current_user.name,
             email: current_user.email,
-            created_at: current_user.created_at
+            created_at: current_user.created_at,
+            is_admin: current_user.is_admin?
           }
         }, status: :ok
       end

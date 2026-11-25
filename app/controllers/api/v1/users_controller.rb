@@ -122,7 +122,8 @@ module Api
           :name,
           :email,
           :password,
-          :password_confirmation
+          :password_confirmation,
+          :is_admin
         )
       end
 
@@ -132,7 +133,8 @@ module Api
           name: user.name,
           email: user.email,
           created_at: user.created_at,
-          status: user.active
+          status: user.active,
+          is_admin: user.is_admin?
         }
       end
 

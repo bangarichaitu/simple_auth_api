@@ -5,6 +5,13 @@ module Api
 
       def create
         self.resource = warden.authenticate!(auth_options)
+
+        unless resource.active?
+          render json: {
+            error: "Your account is inactive. Please contact administrator."
+          }, status: :unauthorized
+          return
+        end
         sign_in(resource_name, resource, store: false)
 
         render json: {
